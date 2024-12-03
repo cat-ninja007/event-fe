@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'custom-purple': '6px 8px 0px 0px #0022BA'
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
