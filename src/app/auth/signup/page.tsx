@@ -19,63 +19,75 @@ const LoginScreen : FC = () => {
     // If sign-up succeeds, redirect to the login page
   };
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
-      <Image src={Login} alt="Sign Up" className="absolute inset-0 object-cover w-full h-full z-0" />
-      <div className="relative z-10 p-8 bg-white rounded-lg shadow-md max-w-md w-full">
+    <div className="sign-up-screen-container grid grid-cols-1 md:grid-cols-2">
+      <div className="sign-up-container px-8 md:px-24 flex flex-col justify-center">
         <div className="logo-container mb-5">
           <h1 className="text-2xl font-bold text-[#4F4CEE]">Karcis.com</h1>
         </div>
         <div className="title-container mb-10">
-          <h2 className="text-[36px] font-extrabold leading-none">Create an account</h2>
+          <h2 className="text-[56px] font-extrabold leading-none">Create an account</h2>
         </div>
         {error && <p className="text-red-500">{error}</p>}
-        <form onSubmit={handleSignUp} className="flex flex-col gap-3">
-          <input
-            type="text"
-            placeholder="Name"
-            className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            aria-label="Name"
-          />
-          <input
-            type="email"
-            placeholder="Email address"
-            className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            aria-label="Email address"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            aria-label="Password"
-          />
-          <button
-            type="submit"
-            className="bg-[#4F4CEE] rounded-[4px] py-5 px-4 text-[16px] font-bold text-white w-full hover:bg-[#3e3bbf] transition"
-          >
-            Sign up
-          </button>
-          <p className="self-end mt-4">
-            Already have an account? 
-            <a 
-              className="text-[#4F4CEE] cursor-pointer hover:underline" 
-              onClick={() => router.push('/auth/login')}
-            >
-              Sign In
-            </a>
-          </p>
-        </form>
+        <div className="input-container">
+          <form onSubmit={handleSignUp} className="flex flex-col gap-3">
+            <div className="input">
+              <input
+                type="text"
+                placeholder="Name"
+                className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                aria-label="Name"
+              />
+            </div>
+            <div className="input">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                aria-label="Email address"
+              />
+            </div>
+            <div className="input">
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full border-[1px] border-[#828282] py-5 px-4 text-[14px] focus:outline-none focus:border-[#4F4CEE] transition"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                aria-label="Password"
+              />
+            </div>
+            <div className="button">
+              <button
+                type="submit"
+                className="bg-[#4F4CEE] rounded-[4px] py-5 px-4 text-[16px] font-bold text-white w-full hover:bg-[#3e3bbf] transition"
+              >
+                Sign up
+              </button>
+            </div>
+            <p className="self-end">
+              Already have an account? 
+              <a 
+                className="text-[#4F4CEE] cursor-pointer hover:underline" 
+                onClick={() => router.push('/auth/login')}
+              >
+                Sign In
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div className="sign-up-image flex justify-center items-center">
+        <Image src={Login} alt="Sign Up" className="rounded-lg" />
       </div>
     </div>
-
   );
 };
 
